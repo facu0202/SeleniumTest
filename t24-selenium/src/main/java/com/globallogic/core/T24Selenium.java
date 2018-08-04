@@ -62,7 +62,7 @@ public abstract class T24Selenium {
 		System.setProperty(WEBDRIVER_CHROME_DRIVER, getT24SeleniumProperties().getProperty(WEBDRIVER_CHROME_DRIVER));
 		
 		ChromeOptions options = new ChromeOptions();
-		options.setHeadless(true);
+		//options.setHeadless(true);
 		setWebDriver(new ChromeDriver(options));
 		getWebDriver().get(getT24SeleniumProperties().getProperty(T24_URL));
 	}
@@ -97,6 +97,7 @@ public abstract class T24Selenium {
 	}
 	public void setValuePosition(String postion, String value)
 	{
+		getWebDriver().findElement(By.id("value:"+postion)).clear();
 		getWebDriver().findElement(By.id("value:"+postion)).sendKeys(value);
 	}
 	public void pressCommitButton()
@@ -143,7 +144,7 @@ public abstract class T24Selenium {
 		getWebDriver().findElement(By.id(ENQUIRY_DATA_SCROLLER));		
 		WebElement table = getWebDriver().findElement(By.xpath(CLASS_ENQUIRYDATA));
 		WebElement detail = getWebDriver().findElement(By.id(DATADISPLAY));
-		List<WebElement> values = detail.findElements(By.tagName(TD));
+		List<WebElement> values = (detail.findElements(By.tagName("tr")).get(0)).findElements(By.tagName(TD));
 		Actions actions = new Actions(getWebDriver());
 		Map<String,String> result = new HashMap<>();
 		int i = 1;

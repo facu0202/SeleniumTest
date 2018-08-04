@@ -1,36 +1,22 @@
 package com.facu.t24_selenium;
 
 import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Test;
 
 /**
  * Unit test for simple App.
  */
 public class AppTest 
-    extends TestCase
 {
     private static final String ENQ_BOMB_NOFILE_SER_GEN = "ENQ BOMB.NOFILE.SER.GEN";
     private static final String TX_NUMER_TEST1 = "TF161551729601";
     final Logger logger = LogManager.getLogger(this.getClass());
 
-	public AppTest( String testName )
-    {
-        super( testName );
-    }
 
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-  
+    @Test
     public void testApp()
     {
     	
